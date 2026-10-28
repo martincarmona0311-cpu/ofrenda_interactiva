@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Ofrenda</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #351344;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: orange;
+        }
+
+        .ofrenda {
+            background-color: #51245e;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 3px solid orange;
+            border-radius: 10px;
+        }
+
+        #foto {
+            width: 90%;
+            height: 300px;
+            object-fit: contain;
+            background-color: #24102c;
+            border: 3px solid orange;
+            border-radius: 8px;
+        }
+
+        button {
+            background-color: #e83e8c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: orange;
+        }
+
+        #descripcion {
+            margin: 15px;
+            color: #ffd166;
+        }
+
+        footer {
+            margin-top: 20px;
+            color: #ffcc80;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="ofrenda">
+        <h1>Mi Ofrenda de Día de Muertos</h1>
+        <p>Un recuerdo para las personas que queremos</p>
+
+        <img id="foto" src="https://www.google.com/imgres?q=vicente%20fernandez&imgurl=https%3A%2F%2Fthumb.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F1%2F14%2FVicente_Fern%25C3%25A1ndez_-_Pepsi_Center_-_06.11.11.jpg%2F960px-Vicente_Fern%25C3%25A1ndez_-_Pepsi_Center_-_06.11.11.jpg%3Futm_source%3Des.wikipedia.org%26utm_campaign%3Dindex%26utm_content%3Dthumbnail&imgrefurl=https%3A%2F%2Fes.wikipedia.org%2Fwiki%2FVicente_Fern%25C3%25A1ndez&docid=hIKjo_iy-2El8M&tbnid=C3Uj5Vt1oyXRwM&vet=12ahUKEwjfwfOryt2XAxWUdTIDHeyqLYEQnPAOegQIXRAA..i&w=960&h=1440&hcb=2&ved=2ahUKEwjfwfOryt2XAxWUdTIDHeyqLYEQnPAOegQIXRAA"
+             alt="Foto de mi ofrenda">
+
+        <p id="descripcion">Un recuerdo especial</p>
+
+        <button onclick="anterior()">Anterior</button>
+        <button onclick="siguiente()">Siguiente</button>
+    </div>
+
+    <footer>
+        <p>Siempre recordaremos a nuestros seres queridos.</p>
+    </footer>
+
+    <script>
+        let indice = 0;
+
+        let fotos = [
+            "https://www.google.com/imgres?q=vicente%20fernandez&imgurl=https%3A%2F%2Fthumb.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F1%2F14%2FVicente_Fern%25C3%25A1ndez_-_Pepsi_Center_-_06.11.11.jpg%2F960px-Vicente_Fern%25C3%25A1ndez_-_Pepsi_Center_-_06.11.11.jpg%3Futm_source%3Des.wikipedia.org%26utm_campaign%3Dindex%26utm_content%3Dthumbnail&imgrefurl=https%3A%2F%2Fes.wikipedia.org%2Fwiki%2FVicente_Fern%25C3%25A1ndez&docid=hIKjo_iy-2El8M&tbnid=C3Uj5Vt1oyXRwM&vet=12ahUKEwjfwfOryt2XAxWUdTIDHeyqLYEQnPAOegQIXRAA..i&w=960&h=1440&hcb=2&ved=2ahUKEwjfwfOryt2XAxWUdTIDHeyqLYEQnPAOegQIXRAA",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxKgK7BGQa_HnM313BuyCmWKunJZHAvwmSxX6tXrnrxQ&s=10",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIXets7To1XpbmtAyNDbLeXd0dzVHqUfdMO9dwf_PO5Q&s=10"
+        ];
+
+        let textos = [
+            "Un recuerdo especial",
+            "Momentos que no olvidamos",
+            "Siempre en nuestra memoria"
+        ];
+
+        function mostrarFoto() {
+            document.getElementById("foto").src = fotos[indice];
+
+            document.getElementById("descripcion").textContent =
+                textos[indice];
+        }
+
+        function siguiente() {
+            indice++;
+
+            if (indice >= fotos.length) {
+                indice = 0;
+            }
+
+            mostrarFoto();
+        }
+
+        function anterior() {
+            indice--;
+
+            if (indice < 0) {
+                indice = fotos.length - 1;
+            }
+
+            mostrarFoto();
+        }
+    </script>
+
+</body>
+</html>
